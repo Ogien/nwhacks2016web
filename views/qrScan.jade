@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .page-header
+    #main_content_wrap.outer
+      section#main_content.inner.center
+        h3.center QR code Reader Demo
+        #reader.center(style='width:300px;height:250px;')
+        h6.center Result
+        span#read.center
+        br
+        h6.center Read Error (Debug only)
+        span.center Will constantly show a message, can be ignored
+        span#read_error.center
+        br
+        h6.center Video Error
+        span#vid_error.center
+        br
+        br
+        br
+        video#video(autoplay='')
+      .select
+        label(for='audioSource') Audio input source: 
+        select#audioSource
+      .select
+        label(for='audioOutput') Audio output destination: 
+        select#audioOutput
+      .select
+        label(for='videoSource') Video source: 
+        select#videoSource
+    #qrimage
