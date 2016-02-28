@@ -329,6 +329,7 @@ passport.use(new LinkedInStrategy({
   scope: ['r_basicprofile', 'r_emailaddress'],
   passReqToCallback: true
 }, function(req, accessToken, refreshToken, profile, done) {
+  console.log(req.user);
   if (req.user) {
     User.findOne({ linkedin: profile.id }, function(err, existingUser) {
       if (existingUser) {

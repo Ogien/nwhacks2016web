@@ -7,8 +7,9 @@ var userSchema = new mongoose.Schema({
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
-
+  tokens: Array,
   linkedin: String,
+  github: String,
 
   profile: {
     firstName: { type: String, default: '' },
