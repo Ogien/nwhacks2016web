@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 var express = require('express');
+var device = require('express-device');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
 var session = require('express-session');
@@ -71,6 +72,10 @@ app.use(sass({
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(device.capture());
+device.enableDeviceHelpers(app)
+
 app.use(expressValidator());
 app.use(methodOverride());
 app.use(cookieParser());
@@ -108,10 +113,6 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
-/**
- * IS IT MOBILE?
- */
-app.use(require('express-device').capture());
 
 /**
  * Primary app routes.
