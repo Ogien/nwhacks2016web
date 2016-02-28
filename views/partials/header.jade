@@ -38,7 +38,7 @@
                 a(href='/account') My Account
               li
                 a(href='/candidate/list') My Candidates
-              if isMobile
+              if is_mobile
                   li.divider
               else
                   li(class=(title == 'qrScan') ? 'active' : undefined)
