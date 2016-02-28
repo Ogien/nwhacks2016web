@@ -9,27 +9,27 @@ block content
     .form-group
       label(class='col-sm-2 control-label', for='firstName') First Name *
       .col-sm-8
-        input.form-control(type='text', name='firstName', id='firstName', autofocus=true, required)
+        input.form-control(type='text', name='firstName', id='firstName', placeholder='John', autofocus=true, required)
     .form-group
       label(class='col-sm-2 control-label', for='lastName') Last Name *
       .col-sm-8
-        input.form-control(type='text', name='lastName', id='lastName', required)
+        input.form-control(type='text', name='lastName', id='lastName', placeholder='Smith', required)
     .form-group
       label(class='col-sm-2 control-label', for='email') Email *
       .col-sm-8
-        input.form-control(type='email', name='email', id='email', required)
+        input.form-control(type='text', name='email', id='email', placeholder='johnsmith@example.com' required)
     .form-group
       label(class='col-sm-2 control-label', for='title') Title
       .col-sm-8
-        input.form-control(type='text', name='title', id='title')
+        input.form-control(type='text', name='title', id='title', placeholder='Student, Software Developer, Graphics Designer, etc.')
     .form-group
       label(class='col-sm-2 control-label', for='location') Location
       .col-sm-8
-        input.form-control(type='text', name='location', id='location')
+        input.form-control(type='text', name='location', id='location', placeholder='Vancouver, BC')
     .form-group
       label(class='col-sm-2 control-label', for='resumeUrl') Resume *
       .col-sm-8
-        input.form-control(type='url', name='resume', id='resume', required)
+        input.form-control(type='text', name='resume', id='resume', placeholder='https://www.dropbox.com/sh/123456' required)
     .form-group
       label(class='col-sm-2 control-label', for='linkedinId') Linked-In URL
       .col-sm-8
@@ -37,11 +37,11 @@ block content
     .form-group
       label(class='col-sm-2 control-label', for='portfolio') Portfolio Links
       .col-sm-8
-        input.form-control(type='url', name='portfolio[0]', id='portfolioLink0')
+        input.form-control(type='text', name='portfolio[0]', id='portfolioLink0', placeholder='https://mywebsite.com')
       .col-sm-8.col-sm-offset-2
-        input.form-control(type='url', name='portfolio[1]', id='portfolioLink1')
+        input.form-control(type='text', name='portfolio[1]', id='portfolioLink1', placeholder='https://github.com/johnsmith/project1.git')
       .col-sm-8.col-sm-offset-2
-        input.form-control(type='url', name='portfolio[2]', id='portfolioLink2')
+        input.form-control(type='text', name='portfolio[2]', id='portfolioLink2', placeholder='https://github.com/johnsmith/project2.git')
     .form-group
       .col-sm-offset-2.col-sm-8
         button.btn.btn-primary(type='submit')
