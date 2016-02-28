@@ -342,9 +342,6 @@ exports.getForgot = function(req, res) {
    console.log("starting post candidate");
    // console.log(req);
    // assert.equal(req.user, null);
-   console.log(req.user);
-   console.log("just finished giving rec user");
-   console.log(req.user.id);
 
    var newCandidate = {};
 
