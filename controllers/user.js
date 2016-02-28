@@ -363,7 +363,9 @@ if (req.user) {
          return next(err);
        }
        req.flash('success', { msg: 'Candidate Added to list' });
+       console.log('Fucking work')
        res.redirect('/candidate/list');
+       console.log('Should have redirected');
      });
    }
    else {

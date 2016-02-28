@@ -129,9 +129,8 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-app.get('/account/qrScan', qrController.getQRScan);
+app.get('/candidate/add', qrController.getQRScan);
 app.get('/qrForm', qrController.getQRForm);
-app.post('/qrForm', qrController.getQRCode);
 app.get('/candidate/list', userController.getCandidates);
 app.post('/candidate/add', userController.postCandidate);
 
