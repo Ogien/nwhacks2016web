@@ -4,7 +4,7 @@ block content
   .page-header
     h3 Create your QR
     h6 * Required Fields
-    img.center(src=userPicture)
+    img.centerImage(src=userPicture)
   form.form-horizontal(id='qr-form', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     input(type='hidden', name='picture', value=userPicture)
