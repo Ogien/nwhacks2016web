@@ -134,7 +134,6 @@ exports.postUpdateProfile = function(req, res, next) {
     }
     user.email = req.body.email || '';
     user.profile.name = req.body.name || '';
-    user.profile.gender = req.body.gender || '';
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';
     user.save(function(err) {
@@ -320,22 +319,46 @@ exports.getForgot = function(req, res) {
 };
 
 /**
- * POST /add/candidate
- * Add's a Candidate to a Candidate list
+ * GET /candidate/list
+ * Pulls all candidates into an Array
+ */
+ exports.getCandidates = function(req,res,next){
+     var query = { id: req.user.id },
+         projection = 'candidatesList';
+     User.find(query, projection, function(err, candidates){
+         res.render('account/list', {
+            candidates: candidates,
+            title: 'Candidate List'
+         });
+     });
+ }
+
+/**
+ * POST /candidate/add
+ * A Recruiter can Add a Candidate to their list
  */
 exports.postCandidate = function(req,res,next) {
     assert.equal(req.user, null);
     User.findById(req.user.id, function(err, user){
       if (err) return next(err);
 
-      user.
+      var newCandidate = user.candidatesList;
+
+      console.log(newCandidate);
+
+      newCandidate.firstName = req.body.firstName || '';
+      newCandidate.lastName = req.body.lastName || '';
+      newCandidate.location = req.body.location || '';
+      newCandidate.picture = req.body.picture || '';
+      newCandidate.resume = req.body.resume || '';
+      newCandidate.portfolio = req.body.portfolio || [];
 
       user.save(function(err) {
         if (err) {
           return next(err);
         }
-        req.flash('success', { msg: 'Profile information updated.' });
-        res.redirect('/account');
+        req.flash('success', { msg: 'Candidate Added to list' });
+        res.redirect('/account/list');
       });
     }
 }

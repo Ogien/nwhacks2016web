@@ -22,7 +22,9 @@ var userSchema = new mongoose.Schema({
           firstName: { type: String, default: '' },
           lastName: { type: String, default: '' },
           location: { type: String, default: '' },
-          picture: { type: String, default: '' }
+          picture: { type: String, default: '' },
+          resume: String,
+          portfolio: [String]
       }
   ]
 
@@ -36,6 +38,7 @@ userSchema.pre('save', function(next) {
   if (!user.isModified('password')) {
     return next();
   }
+  
   bcrypt.genSalt(10, function(err, salt) {
     if (err) {
       return next(err);
@@ -48,6 +51,7 @@ userSchema.pre('save', function(next) {
       next();
     });
   });
+
 });
 
 /**
