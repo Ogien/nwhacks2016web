@@ -3,16 +3,15 @@ $(document).ready(function(){
   $('#reader').html5_qrcode(
       function(data){
         //Put a http post call for the data here (most likely a url)
-        $('#read').html(data);
         $.post( "/candidate/add", data);
-
+        $('#read').html(data);
       },
       function(error){
-          $('#read_error').html(error);
+        //   $('#read_error').html(error);
       }, function(videoError){
-          $('#vid_error').html(videoError);
+        //   $('#vid_error').html(videoError);
       }
-);
+ );
 });
 
 function createQRImage(url) {
