@@ -336,7 +336,12 @@ exports.getForgot = function(req, res) {
  }
 
  exports.getCandidateArray = function (req,res,next) {
-   User.findById("56d25a0cda84b94004cff4ae", function(err, user){
+   userEmail = req.params.email;
+   console.log(req.params.email);
+
+   var param = { email: userEmail };
+   User.findOne(param, function(err, user){
+        console.log(user.candidatesList);
        res.status(200).send({
           candidates: user.candidatesList,
        });
