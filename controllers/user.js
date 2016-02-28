@@ -133,7 +133,8 @@ exports.postUpdateProfile = function(req, res, next) {
       return next(err);
     }
     user.email = req.body.email || '';
-    user.profile.name = req.body.name || '';
+    user.profile.firstName = req.body.firstName || '';
+    user.profile.lastName = req.body.lastName || '';
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';
     user.save(function(err) {
