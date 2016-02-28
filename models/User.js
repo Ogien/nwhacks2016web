@@ -28,7 +28,8 @@ var userSchema = new mongoose.Schema({
           email: String,
           resume: String,
           portfolio: [String],
-          dateScanned: String
+          dateScanned: String,
+          comments: String,
       }
   ]
 

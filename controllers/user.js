@@ -368,6 +368,7 @@ exports.getForgot = function(req, res) {
    newCandidate.resume = req.body.resume || '';
    newCandidate.portfolio = req.body.portfolio || [];
    newCandidate.dateScanned = new Date();
+   newCandidate.comments = '';
 
 if (req.user) {
    User.findByIdAndUpdate(req.user.id,
@@ -420,6 +421,7 @@ if (req.user) {
     newCandidate.resume = req.body.resume || '';
     newCandidate.portfolio = req.body.portfolio || [];
     newCandidate.dateScanned = new Date();
+    newCandidate.comments = '';
 
     User.findOneAndUpdate(params,
       {$push: {"candidatesList": newCandidate}},
