@@ -13,8 +13,8 @@
       ul.nav.navbar-nav
         li(class=(title == 'Home') ? 'active' : undefined)
           a(href='/') Home
-        li(class=(title == 'API Examples') ? 'active' : undefined)
-          a(href='/api') API Examples
+        //- li(class=(title == 'API Examples') ? 'active' : undefined)
+        //-   a(href='/api') API Examples
         li(class=(title == 'Create Your QR') ? 'active' : undefined)
           a(href='/qrForm') Create Your QR
         li(class=(title == 'Contact') ? 'active' : undefined)
@@ -38,6 +38,8 @@
             ul.dropdown-menu
               li
                 a(href='/account') My Account
+              li
+                a(href='/candidate/list') My Candidates
               li(class=(title == 'qrScan') ? 'active' : undefined)
                 a(href='/candidate/add') Scan a Candidate
               li.divider
