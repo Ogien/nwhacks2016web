@@ -326,6 +326,7 @@ exports.getForgot = function(req, res) {
      var query = { id: req.user.id },
          projection = 'candidatesList';
      User.find(query, projection, function(err, candidates){
+         console.log(candidates);
          res.render('account/list', {
             candidates: candidates,
             title: 'Candidate List'
@@ -350,7 +351,8 @@ exports.postCandidate = function(req,res,next) {
       newCandidate.firstName = req.body.firstName || '';
       newCandidate.lastName = req.body.lastName || '';
       newCandidate.location = req.body.location || '';
-      newCandidate.picture = req.body.picture || '';
+    //   newCandidate.picture = req.body.picture || '';
+      newCandidate.linkedin = req.body.linkedin || '';
       newCandidate.resume = req.body.resume || '';
       newCandidate.portfolio = req.body.portfolio || [];
 
