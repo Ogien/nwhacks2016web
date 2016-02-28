@@ -324,22 +324,21 @@ exports.getForgot = function(req, res) {
  * Pulls all candidates into an Array
  */
  exports.getCandidates = function(req,res,next){
-     if (!req.user) {
-       User.findById("56d25a0cda84b94004cff4ae", function(err, user){
-           res.render('account/list', {
-              candidates: user.candidatesList,
-              title: 'Candidate List'
-           });
-       });
       //  return next("Please login again") //todo !!!
-     }
-     User.findById(req.user.id, function(err, user){
-         res.render('account/list', {
-            candidates: user.candidatesList,
-            // userID: user._id
-            title: 'Candidate List'
-         });
-     });
+      User.findById(req.user.id, function(err, user){
+          res.render('account/list', {
+             candidates: user.candidatesList,
+             title: 'Candidate List'
+          });
+      });
+ }
+
+ exports.getCandidateArray = function (req,res,next) {
+   User.findById("56d25a0cda84b94004cff4ae", function(err, user){
+       res.status(200).send({
+          candidates: user.candidatesList,
+       });
+   });
  }
 
 /**
