@@ -346,6 +346,7 @@ exports.postCandidate = function(req,res,next) {
 
       console.log(newCandidate);
 
+      newCandidate.title = req.body.title || '';
       newCandidate.firstName = req.body.firstName || '';
       newCandidate.lastName = req.body.lastName || '';
       newCandidate.location = req.body.location || '';
@@ -360,7 +361,7 @@ exports.postCandidate = function(req,res,next) {
         req.flash('success', { msg: 'Candidate Added to list' });
         res.redirect('/account/list');
       });
-    }
+    });
 }
 
 /**

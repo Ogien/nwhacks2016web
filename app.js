@@ -128,11 +128,15 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-app.get('/qrScan', qrScanController.getQRScan);
+app.get('/account/qrScan', qrScanController.getQRScan);
 app.get('/qrForm', qrFormController.getQRForm);
 app.post('/qrForm', qrFormController.getQRCode);
 app.get('/candidate/list', userController.getCandidates);
 app.post('/candidate/add', userController.postCandidate);
+
+app.get('/test', function(req,res){
+    res.send('ok');
+});
 
 /**
  * API examples routes.

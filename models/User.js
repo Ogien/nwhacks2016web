@@ -19,6 +19,7 @@ var userSchema = new mongoose.Schema({
 
   candidatesList: [
       {
+          title: { type: String, default: '' },
           firstName: { type: String, default: '' },
           lastName: { type: String, default: '' },
           location: { type: String, default: '' },
@@ -38,7 +39,7 @@ userSchema.pre('save', function(next) {
   if (!user.isModified('password')) {
     return next();
   }
-  
+
   bcrypt.genSalt(10, function(err, salt) {
     if (err) {
       return next(err);
