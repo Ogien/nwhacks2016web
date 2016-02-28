@@ -349,6 +349,7 @@ exports.getForgot = function(req, res) {
    // console.log(req);
    // assert.equal(req.user, null);
 
+
    var newCandidate = {};
 
    newCandidate.title = req.body.title || '';
@@ -359,6 +360,7 @@ exports.getForgot = function(req, res) {
    newCandidate.linkedin = req.body.linkedin || '';
    newCandidate.resume = req.body.resume || '';
    newCandidate.portfolio = req.body.portfolio || [];
+   newCandidate.dateScanned = new Date();
 
 if (req.user) {
    User.findByIdAndUpdate(req.user.id,
