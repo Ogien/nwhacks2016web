@@ -17,8 +17,7 @@
           a(href='/api') API Examples
         li(class=(title == 'Contact') ? 'active' : undefined)
           a(href='/contact') Contact
-        li(class=(title == 'Contact') ? 'active' : undefined)
-          a(href='/account/qrScan') Qr Scan
+
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(title == 'Login') ? 'active' : undefined)
@@ -37,6 +36,8 @@
             ul.dropdown-menu
               li
                 a(href='/account') My Account
+              li(class=(title == 'qrScan') ? 'active' : undefined)
+                a(href='/account/qrScan') Scan a Candidate
               li.divider
               li
                 a(href='/logout') Logout

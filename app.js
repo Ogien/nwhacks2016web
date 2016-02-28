@@ -35,8 +35,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
-var qrScanController = require('./controllers/qrScan');
-var qrFormController = require('./controllers/qrForm');
+var qrController = require('./controllers/qr');
 
 /**
  * API keys and Passport configuration.
@@ -128,9 +127,9 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-app.get('/account/qrScan', qrScanController.getQRScan);
-app.get('/qrForm', qrFormController.getQRForm);
-app.post('/qrForm', qrFormController.getQRCode);
+app.get('/account/qrScan', qrController.getQRScan);
+app.get('/qrForm', qrController.getQRForm);
+app.post('/qrForm', qrController.getQRCode);
 app.get('/candidate/list', userController.getCandidates);
 app.post('/candidate/add', userController.postCandidate);
 
