@@ -27,8 +27,9 @@ var userSchema = new mongoose.Schema({
           picture: { type: String, default: '' },
           resume: String,
           portfolio: {
-            label: String,
-            url: String
+            url1: String,
+            url2: String,
+            url3: String,
           },
           dateScanned: String
       }
