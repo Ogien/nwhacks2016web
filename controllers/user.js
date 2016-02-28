@@ -370,6 +370,8 @@ exports.getForgot = function(req, res) {
    newCandidate.dateScanned = new Date();
    newCandidate.comments = '';
 
+   console.log(newCandidate);
+
 if (req.user) {
    User.findByIdAndUpdate(req.user.id,
      {$push: {"candidatesList": newCandidate}},
