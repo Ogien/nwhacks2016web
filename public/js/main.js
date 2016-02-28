@@ -14,7 +14,7 @@ $(document).ready(function(){
  );
 
 
- var table = $('#candidateTable').DataTable( {
+ var table = $('#example').DataTable( {
         lengthChange: false,
         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
     } );

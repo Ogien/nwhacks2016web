@@ -407,11 +407,15 @@ if (req.user) {
         var CandidateList = user.candidatesList;
         console.log(CandidateList);
          var candidateListIndexPos = CandidateList.map(function(candidate){
-              return candidate
+              return candidate._id;
           }).indexOf(xCandidate._id);
 
+          if (!candidateListIndexPos) {
+            return next("Something went wrong in finding candidate list position.");
+          }
+
           // Remove Candidate From List
-         user.candidateList = CandidateList.splice(candidateListIndexPos, 1);
+         user.candidatesList.splice(candidateListIndexPos, 1);
 
          // Save new array
          user.save( function(err) {
