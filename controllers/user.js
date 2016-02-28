@@ -352,7 +352,7 @@ exports.postCandidate = function(req,res,next) {
       newCandidate.lastName = req.body.lastName || '';
       newCandidate.location = req.body.location || '';
     //   newCandidate.picture = req.body.picture || '';
-      newCandidate.linkedin = (req.body.linkedin).length === 19 ? '' : req.body.linkedin;
+      newCandidate.linkedin = req.body.linkedin || '';
       newCandidate.resume = req.body.resume || '';
       newCandidate.portfolio = req.body.portfolio || [];
 
