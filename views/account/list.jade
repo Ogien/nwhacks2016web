@@ -1,4 +1,30 @@
 extends ../layout
 
 block content
-    pre= candidates
+  .page-header
+    h3 Candidates List
+  
+  table.table.table-striped
+    thead
+      tr 
+        th Photo
+        th First name
+        th Last name
+        th Title
+        th Location
+        th Resume
+        th Portfolio links
+    tbody  
+      each candidate in candidates
+        tr 
+          td: img(src=candidate.picture)
+          td #{candidate.firstName}
+          td #{candidate.lastName}
+          td #{candidate.title}
+          td #{candidate.location}
+          td: a(href=candidate.resume) Resume link
+          td 
+            each portfolioLink, i in candidate.portfolio
+              if portfolioLink
+                p: a(href=portfolioLink) Portfolio link #{i}
+    
