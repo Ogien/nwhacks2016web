@@ -23,6 +23,7 @@
     "dotenv": "^2.0.0",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
+    "express-device": "^0.4.2",
     "express-flash": "^0.0.2",
     "express-session": "^1.13.0",
     "express-validator": "^2.19.1",
@@ -64,6 +65,7 @@
   "devDependencies": {
     "blessed": "^0.1.81",
     "chai": "^3.5.0",
+    "express-device": "^0.4.2",
     "mocha": "^2.4.5",
     "multiline": "^1.0.2",
     "supertest": "^1.2.0"
