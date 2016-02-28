@@ -28,3 +28,4 @@ block content
             each portfolioLink, i in candidate.portfolio
               if portfolioLink
                 p: a(href=portfolioLink) Portfolio link #{i}
+          td: a(href='/candidate/delete/#{userID}/#{candidate._id}') Delete

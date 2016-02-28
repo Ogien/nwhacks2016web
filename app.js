@@ -134,7 +134,7 @@ app.get('/qrForm', qrController.getQRForm);
 app.post('/qrForm', qrController.getQRCode);
 app.get('/candidate/list', userController.getCandidates);
 app.post('/candidate/add', userController.postCandidate);
-
+app.get('/candidate/delete/:user/:candidate', userController.deleteCandidate);
 app.get('/test', function(req,res){
     res.send('ok');
 });
