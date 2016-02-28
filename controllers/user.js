@@ -337,11 +337,9 @@ exports.getForgot = function(req, res) {
 
  exports.getCandidateArray = function (req,res,next) {
    userEmail = req.params.email;
-   console.log(req.params.email);
 
    var param = { email: userEmail };
    User.findOne(param, function(err, user){
-        console.log(user.candidatesList);
        res.status(200).send({
           candidates: user.candidatesList,
        });
@@ -396,6 +394,44 @@ if (req.user) {
        });
      }
  }
+
+ /**
+  * POST /candidate/add
+  * A Recruiter can Add a Candidate to their list
+  */
+  exports.postCandidateEmail = function(req,res,next) {
+    console.log(req.params.email);
+    // console.log(req);
+    // assert.equal(req.user, null);
+    var params =  {
+      email: req.params.email
+    }
+
+
+    var newCandidate = {};
+
+    newCandidate.title = req.body.title || '';
+    newCandidate.firstName = req.body.firstName || '';
+    newCandidate.lastName = req.body.lastName || '';
+    newCandidate.email = req.body.email || '';
+    newCandidate.location = req.body.location || '';
+    newCandidate.picture = req.body.picture || '';
+    newCandidate.linkedin = req.body.linkedin || '';
+    newCandidate.resume = req.body.resume || '';
+    newCandidate.portfolio = req.body.portfolio || [];
+    newCandidate.dateScanned = new Date();
+
+    User.findOneAndUpdate(params,
+      {$push: {"candidatesList": newCandidate}},
+      {safe:true, upsert: true, new:true},
+      function(err, model) {
+        if (err) {
+          return next(err);
+        }
+        req.flash('success', { msg: 'Candidate Added to list' });
+        res.status(200).send('ok')
+      });
+  }
 
  /**
   * Delete /candidate/delete
