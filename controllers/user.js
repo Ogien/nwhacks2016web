@@ -323,12 +323,12 @@ exports.getForgot = function(req, res) {
  * Pulls all candidates into an Array
  */
  exports.getCandidates = function(req,res,next){
-     var query = { id: req.user.id },
-         projection = 'candidatesList';
-     User.find(query, projection, function(err, candidates){
-         console.log(candidates);
+     if (req.user.id === undefined) {
+       return next("Please login again") //todo !!!
+     }
+     User.findById(req.user.id, function(err, user){
          res.render('account/list', {
-            candidates: candidates,
+            candidates: user.candidatesList,
             title: 'Candidate List'
          });
      });
