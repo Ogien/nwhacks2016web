@@ -377,7 +377,7 @@ if (req.user) {
          req.flash('success', { msg: 'Candidate Added to list' });
          res.redirect('/candidate/list');
        });
-
+     }
  }
 
 /**
