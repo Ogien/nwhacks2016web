@@ -18,7 +18,7 @@ block content
       each candidate in candidates
         tr
           td #{candidate.dateScanned}
-          td: img(src=candidate.picture)
+          td: img.headshot-img(src=candidate.picture)
           td #{candidate.firstName}
           td #{candidate.lastName}
           td #{candidate.title}
