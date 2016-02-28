@@ -7,9 +7,9 @@ $(document).ready(function(){
         $('#read').html(data);
       },
       function(error){
-        //   $('#read_error').html(error);
+          $('#read_error').html(error);
       }, function(videoError){
-        //   $('#vid_error').html(videoError);
+          $('#vid_error').html(videoError);
       }
  );
 
