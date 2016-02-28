@@ -8827,3 +8827,13 @@ textarea {
   margin-right: 6px; }
 
 /*# sourceMappingURL=main.css.map */
+
+.homepage-title {
+  font-weight: bold;
+  font-family: Ubuntu;
+  font-size: 5em;
+}
+
+.homepage-p {
+  font-size: 2.5em;
+}
