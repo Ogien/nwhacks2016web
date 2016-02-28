@@ -5,7 +5,7 @@ block content
     h3 Candidates List
   table.table.table-striped.tablesorter
     thead
-      tr 
+      tr
         th Date
         th Photo
         th First name
@@ -14,9 +14,9 @@ block content
         th Location
         th Resume
         th Portfolio links
-    tbody  
+    tbody
       each candidate in candidates
-        tr 
+        tr
           td #{candidate.dateScanned}
           td: img(src=candidate.picture)
           td #{candidate.firstName}
@@ -24,10 +24,7 @@ block content
           td #{candidate.title}
           td #{candidate.location}
           td: a(href=candidate.resume) Resume link
-          td 
-            if candidate.portfolio.url1
-              p: a(href=candidate.portfolio.url1) Portfolio link 1
-            if candidate.portfolio.url2
-              p: a(href=candidate.portfolio.url2) Portfolio link 2
-            if candidate.portfolio.url3
-              p: a(href=candidate.portfolio.url3) Portfolio link 3
+          td
+            each portfolioLink, i in candidate.portfolio
+              if portfolioLink
+                p: a(href=portfolioLink) Portfolio link #{i}
