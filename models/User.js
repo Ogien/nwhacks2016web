@@ -11,13 +11,20 @@ var userSchema = new mongoose.Schema({
   linkedin: String,
 
   profile: {
-    name: { type: String, default: '' },
-    gender: { type: String, default: '' },
+    firstName: { type: String, default: '' },
+    lastName: { type: String, default: '' },
     location: { type: String, default: '' },
     picture: { type: String, default: '' }
   },
 
-  candidatesList: String
+  candidatesList: [
+      {
+          firstName: { type: String, default: '' },
+          lastName: { type: String, default: '' },
+          location: { type: String, default: '' },
+          picture: { type: String, default: '' }
+      }
+  ]
 
 }, { timestamps: true });
 

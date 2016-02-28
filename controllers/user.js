@@ -320,6 +320,27 @@ exports.getForgot = function(req, res) {
 };
 
 /**
+ * POST /add/candidate
+ * Add's a Candidate to a Candidate list
+ */
+exports.postCandidate = function(req,res,next) {
+    assert.equal(req.user, null);
+    User.findById(req.user.id, function(err, user){
+      if (err) return next(err);
+
+      user.
+
+      user.save(function(err) {
+        if (err) {
+          return next(err);
+        }
+        req.flash('success', { msg: 'Profile information updated.' });
+        res.redirect('/account');
+      });
+    }
+}
+
+/**
  * POST /forgot
  * Create a random token, then the send user an email with a reset link.
  */
