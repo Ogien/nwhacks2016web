@@ -8,7 +8,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var errorHandler = require('errorhandler');
-var lusca = require('lusca');
+// var lusca = require('lusca');
 var methodOverride = require('method-override');
 var dotenv = require('dotenv');
 var MongoStore = require('connect-mongo/es5')(session);
@@ -90,11 +90,13 @@ app.use(function(req, res, next) {
   if (req.path === '/api/upload') {
     next();
   } else {
-    lusca.csrf()(req, res, next);
+    next();
+    // lusca.csrf()(req, res, next);
   }
 });
-app.use(lusca.xframe('SAMEORIGIN'));
-app.use(lusca.xssProtection(true));
+// app.use(lusca.csrf(false));
+// app.use(lusca.xframe('SAMEORIGIN'));
+// app.use(lusca.xssProtection(true));
 app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();

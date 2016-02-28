@@ -338,33 +338,36 @@ exports.getForgot = function(req, res) {
  * POST /candidate/add
  * A Recruiter can Add a Candidate to their list
  */
-exports.postCandidate = function(req,res,next) {
-    assert.equal(req.user, null);
-    User.findById(req.user.id, function(err, user){
-      if (err) return next(err);
+ exports.postCandidate = function(req,res,next) {
+   console.log("starting post candidate");
+   // console.log(req);
+   // assert.equal(req.user, null);
+   console.log(req.user);
+   console.log("just finished giving rec user");
+   console.log(req.user.id);
 
-      var newCandidate = user.candidatesList;
+   var newCandidate = {};
 
-      console.log(newCandidate);
+   newCandidate.title = req.body.title || '';
+   newCandidate.firstName = req.body.firstName || '';
+   newCandidate.lastName = req.body.lastName || '';
+   newCandidate.location = req.body.location || '';
+   //   newCandidate.picture = req.body.picture || '';
+   newCandidate.linkedin = req.body.linkedin || '';
+   newCandidate.resume = req.body.resume || '';
+   newCandidate.portfolio = req.body.portfolio || [];
 
-      newCandidate.title = req.body.title || '';
-      newCandidate.firstName = req.body.firstName || '';
-      newCandidate.lastName = req.body.lastName || '';
-      newCandidate.location = req.body.location || '';
-    //   newCandidate.picture = req.body.picture || '';
-      newCandidate.linkedin = req.body.linkedin || '';
-      newCandidate.resume = req.body.resume || '';
-      newCandidate.portfolio = req.body.portfolio || [];
-
-      user.save(function(err) {
-        if (err) {
-          return next(err);
-        }
-        req.flash('success', { msg: 'Candidate Added to list' });
-        res.redirect('/account/list');
-      });
-    });
-}
+   User.findByIdAndUpdate(req.user.id,
+     {$push: {"candidatesList": newCandidate}},
+     {safe:true, upsert: true, new:true},
+     function(err, model) {
+       if (err) {
+         return next(err);
+       }
+       req.flash('success', { msg: 'Candidate Added to list' });
+       res.redirect('/candidate/list');
+     });
+   }
 
 /**
  * POST /forgot
