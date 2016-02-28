@@ -25,6 +25,9 @@ block content
           td #{candidate.location}
           td: a(href=candidate.resume) Resume link
           td 
-            each portfolio in candidate.portfolio
-              if portfolio.url
-                p: a(href=portfolio.url) #{portfolio.label}
+            if candidate.portfolio.url1
+              p: a(href=candidate.portfolio.url1) Portfolio link 1
+            if candidate.portfolio.url2
+              p: a(href=candidate.portfolio.url2) Portfolio link 2
+            if candidate.portfolio.url3
+              p: a(href=candidate.portfolio.url3) Portfolio link 3
