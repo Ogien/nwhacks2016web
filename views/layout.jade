@@ -21,6 +21,21 @@ html
     script(src='/js/lib/bootstrap.min.js')
     script(src='/js/lib/jsqrcode-combined.min.js')
     script(src='/js/lib/html5-qrcode.min.js')
+    script(src='/js/lib/tablesorter.js')
+    script(type="text/javascript")
+      $(function() {
+      // call the tablesorter plugin
+        $("table").tablesorter({
+        // {icon} isn't used by the blue theme; it is optional here
+          headerTemplate : '{icon}{content}',
+        // manipulate the template string after is it created
+          onRenderTemplate : function(i, t){
+          // add the column number to the beginning
+          // it's a zero-based index, so we add one
+            return '<em>' + (i+1) + ':</em> ' + t;
+          }
+        });
+      });
     script(src='/js/main.js')
     
 
