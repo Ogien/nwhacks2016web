@@ -1,6 +1,10 @@
 extends ../layout
 
 block content
+  - var formatDate = function(date) {
+  -  return new Date(date).toDateString();
+  - }
+
   .page-header
     h3 Candidates List
   table#example.table.table-striped.tablesorter
@@ -17,7 +21,7 @@ block content
     tbody
       each candidate in candidates
         tr
-          td #{candidate.dateScanned}
+          td #{formatDate(candidate.dateScanned)}
           td: img.headshot-img(src=candidate.picture)
           td #{candidate.firstName}
           td #{candidate.lastName}
