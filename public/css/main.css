@@ -8837,3 +8837,9 @@ textarea {
 .homepage-p {
   font-size: 2.5em;
 }
+
+.centerImage {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}

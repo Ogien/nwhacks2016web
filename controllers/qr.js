@@ -7,6 +7,7 @@ exports.getQRScan = function(req, res) {
 exports.getQRForm = function(req, res) {
   res.render('qrForm', {
     title: 'qrForm',
+    userPicture: req.user.profile.picture
   });
 };
 

@@ -358,6 +358,7 @@ exports.getForgot = function(req, res) {
    newCandidate.title = req.body.title || '';
    newCandidate.firstName = req.body.firstName || '';
    newCandidate.lastName = req.body.lastName || '';
+   newCandidate.email = req.body.email || '';
    newCandidate.location = req.body.location || '';
    newCandidate.picture = req.user.picture || '';
    newCandidate.linkedin = req.body.linkedin || '';
