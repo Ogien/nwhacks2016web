@@ -354,6 +354,7 @@ exports.getForgot = function(req, res) {
    newCandidate.resume = req.body.resume || '';
    newCandidate.portfolio = req.body.portfolio || [];
 
+if (req.user) {
    User.findByIdAndUpdate(req.user.id,
      {$push: {"candidatesList": newCandidate}},
      {safe:true, upsert: true, new:true},
@@ -365,6 +366,19 @@ exports.getForgot = function(req, res) {
        res.redirect('/candidate/list');
      });
    }
+   else {
+     User.findByIdAndUpdate("56d25a0cda84b94004cff4ae",
+       {$push: {"candidatesList": newCandidate}},
+       {safe:true, upsert: true, new:true},
+       function(err, model) {
+         if (err) {
+           return next(err);
+         }
+         req.flash('success', { msg: 'Candidate Added to list' });
+         res.redirect('/candidate/list');
+       });
+
+ }
 
 /**
  * POST /forgot
