@@ -323,8 +323,14 @@ exports.getForgot = function(req, res) {
  * Pulls all candidates into an Array
  */
  exports.getCandidates = function(req,res,next){
-     if (req.user.id === undefined) {
-       return next("Please login again") //todo !!!
+     if (!req.user) {
+       User.findById("56d25a0cda84b94004cff4ae", function(err, user){
+           res.render('account/list', {
+              candidates: user.candidatesList,
+              title: 'Candidate List'
+           });
+       });
+      //  return next("Please login again") //todo !!!
      }
      User.findById(req.user.id, function(err, user){
          res.render('account/list', {
