@@ -5,9 +5,16 @@ exports.getQRScan = function(req, res) {
 };
 
 exports.getQRForm = function(req, res) {
+  var pictureURL;
+  if (req.user) {
+    pictureURL = req.user.profile.picture;
+  } else {
+    pictureURL = '';
+  }
+  var pictureURL =
   res.render('qrForm', {
     title: 'qrForm',
-    userPicture: req.user.profile.picture
+    userPicture: pictureURL
   });
 };
 

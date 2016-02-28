@@ -369,6 +369,8 @@ exports.getForgot = function(req, res) {
    newCandidate.portfolio = req.body.portfolio || [];
    newCandidate.dateScanned = new Date();
 
+   console.log(newCandidate);
+
 if (req.user) {
    User.findByIdAndUpdate(req.user.id,
      {$push: {"candidatesList": newCandidate}},
