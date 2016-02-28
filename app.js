@@ -79,6 +79,7 @@ device.enableDeviceHelpers(app)
 app.use(expressValidator());
 app.use(methodOverride());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 604800000 }));
 app.use(session({
   resave: true,
   saveUninitialized: true,
@@ -112,7 +113,6 @@ app.use(function(req, res, next) {
   }
   next();
 });
-app.use(express.static(path.join(__dirname, 'public'), { maxAge: 604800000 }));
 
 /**
  * Primary app routes.
