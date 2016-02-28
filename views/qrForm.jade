@@ -17,7 +17,7 @@ block content
     .form-group
       label(class='col-sm-2 control-label', for='email') Email *
       .col-sm-8
-        input.form-control(type='text', name='email', id='email', required)
+        input.form-control(type='email', name='email', id='email', required)
     .form-group
       label(class='col-sm-2 control-label', for='title') Title
       .col-sm-8
@@ -29,19 +29,19 @@ block content
     .form-group
       label(class='col-sm-2 control-label', for='resumeUrl') Resume *
       .col-sm-8
-        input.form-control(type='text', name='resume', id='resume', required)
+        input.form-control(type='url', name='resume', id='resume', required)
     .form-group
       label(class='col-sm-2 control-label', for='linkedinId') Linked-In URL
       .col-sm-8
-        input.form-control(type='text', name='linkedin', id='linkedin' value="ca.linkedin.com/in/")
+        input.form-control(type='url', name='linkedin', id='linkedin' placeholder="ca.linkedin.com/in/")
     .form-group
       label(class='col-sm-2 control-label', for='portfolio') Portfolio Links
       .col-sm-8
-        input.form-control(type='text', name='portfolio[0]', id='portfolioLink0')
+        input.form-control(type='url', name='portfolio[0]', id='portfolioLink0')
       .col-sm-8.col-sm-offset-2
-        input.form-control(type='text', name='portfolio[1]', id='portfolioLink1')
+        input.form-control(type='url', name='portfolio[1]', id='portfolioLink1')
       .col-sm-8.col-sm-offset-2
-        input.form-control(type='text', name='portfolio[2]', id='portfolioLink2')
+        input.form-control(type='url', name='portfolio[2]', id='portfolioLink2')
     .form-group
       .col-sm-offset-2.col-sm-8
         button.btn.btn-primary(type='submit')
