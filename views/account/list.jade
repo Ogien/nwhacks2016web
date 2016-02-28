@@ -3,7 +3,7 @@ extends ../layout
 block content
   .page-header
     h3 Candidates List
-  table.table.table-striped.tablesorter
+  table#candidateTable.table.table-striped.tablesorter
     thead
       tr
         th Date
@@ -28,4 +28,4 @@ block content
             each portfolioLink, i in candidate.portfolio
               if portfolioLink
                 p: a(href=portfolioLink) Portfolio link #{i}
-          td: a(href='/candidate/delete/#{userID}/#{candidate._id}') Delete
+          td: a(href='/candidate/delete/#{candidate._id}') Delete

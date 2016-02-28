@@ -336,7 +336,7 @@ exports.getForgot = function(req, res) {
      User.findById(req.user.id, function(err, user){
          res.render('account/list', {
             candidates: user.candidatesList,
-            userID: user._id
+            // userID: user._id
             title: 'Candidate List'
          });
      });
@@ -397,14 +397,14 @@ if (req.user) {
   exports.deleteCandidate = function(req,res,next){
       // The Candidate we want to delete
       var xCandidate = req.params.candidate;
-      var Recruiter = req.params.user;
+      var Recruiter = req.user;
 
       User.findById(Recruiter, function(err, user){
         //   Find the index position of the Candidate
         // Todo: Use the Recruiter to determine how to remove the
         // candidate from their list. It should iterate through the array and give the index to splice at.
         console.log(xCandidate);
-        var CandidateList = user.candidateList;
+        var CandidateList = user.candidatesList;
         console.log(CandidateList);
          var candidateListIndexPos = CandidateList.map(function(candidate){
               return candidate

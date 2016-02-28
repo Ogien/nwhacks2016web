@@ -12,6 +12,16 @@ $(document).ready(function(){
         //   $('#vid_error').html(videoError);
       }
  );
+
+
+ var table = $('#candidateTable').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+    } );
+
+    table.buttons().container()
+        .appendTo( '#example_wrapper .col-sm-6:eq(0)' );
+
 });
 
 function createQRImage(url) {
